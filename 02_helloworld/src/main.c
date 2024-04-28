@@ -5,8 +5,21 @@
  */
 
 #include <zephyr/kernel.h>
+#include <zephyr/logging/log.h>
+
+LOG_MODULE_REGISTER(log_demo,LOG_LEVEL_DBG);
 
 int main(void)
 {
-	printk("Hello World! %s\n", CONFIG_BOARD);
+	int counter=0;
+
+	while(1)
+	{
+		//printk("Hello World! %s\n", CONFIG_BOARD);
+		//printk("Hello World = %d\n", counter++);
+		LOG_INF("Hello World = %d", counter++);
+		k_msleep(1010);
+	}	
+	
 }
+
